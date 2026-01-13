@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanBitha - Visual Artist</title>
+    <title>WanBitha | Arte Visual Contemporânea</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,29 +12,26 @@
     <style>
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #0f0f0f;
-        color: #f3f3f3;
+        background-color: #000;
+        color: #fff;
         overflow-x: hidden;
       }
       h1, h2, h3, .font-display {
         font-family: 'Anton', sans-serif;
       }
-      .font-hero {
-        font-family: 'Syne', sans-serif;
-      }
       .font-archivo {
         font-family: 'Archivo Black', sans-serif;
       }
+      .font-syne {
+        font-family: 'Syne', sans-serif;
+      }
       .font-helvetica {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-weight: 300;
       }
-      /* Custom utility for vertical text that works cross-browser better than some utility classes */
       .vertical-text {
         writing-mode: vertical-rl;
         text-orientation: mixed;
       }
-      /* Hide scrollbar for cleaner look in galleries */
       .no-scrollbar::-webkit-scrollbar {
         display: none;
       }
@@ -41,39 +39,17 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
       }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      
-      .animate-fade-in-up {
-        animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        opacity: 0; /* Start hidden */
-      }
-
-      .animation-delay-200 {
-        animation-delay: 0.3s;
-      }
-      
-      .animation-delay-400 {
-        animation-delay: 0.6s;
-      }
-
-      /* Typewriter Cursor Blink */
       @keyframes blink {
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
       .animate-blink {
-        animation: blink 1s step-end infinite;
+        animation: blink 0.8s step-end infinite;
+      }
+      /* Custom selection color */
+      ::selection {
+        background: #FFEC00;
+        color: #000;
       }
     </style>
   <script type="importmap">

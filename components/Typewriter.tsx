@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 interface TypewriterProps {
@@ -25,16 +26,20 @@ export default function Typewriter({
   const [typingSpeed, setTypingSpeed] = useState(typeSpeed);
   const [hasStarted, setHasStarted] = useState(false);
 
+  // Reset when words array changes (language toggle)
   useEffect(() => {
+    setText('');
+    setIsDeleting(false);
+    setLoopNum(0);
+    setHasStarted(false);
     const startTimeout = setTimeout(() => {
       setHasStarted(true);
     }, startDelay);
-
     return () => clearTimeout(startTimeout);
-  }, [startDelay]);
+  }, [words, startDelay]);
 
   useEffect(() => {
-    if (!hasStarted) return;
+    if (!hasStarted || words.length === 0) return;
 
     const i = loopNum % words.length;
     const fullText = words[i];
@@ -45,20 +50,13 @@ export default function Typewriter({
         : fullText.substring(0, text.length + 1)
       );
 
-      // Typing Speed Logic
       setTypingSpeed(isDeleting ? deleteSpeed : typeSpeed);
 
       if (!isDeleting && text === fullText) {
-        // Finished typing word
-        if (!loop && loopNum === words.length - 1) {
-          // Stop if no loop and last word
-          return;
-        }
-        // Pause before deleting
+        if (!loop && loopNum === words.length - 1) return;
         setTypingSpeed(delaySpeed);
         setIsDeleting(true);
       } else if (isDeleting && text === '') {
-        // Finished deleting word
         setIsDeleting(false);
         setLoopNum(loopNum + 1);
         setTypingSpeed(typeSpeed);
@@ -66,18 +64,17 @@ export default function Typewriter({
     };
 
     const timer = setTimeout(handleTyping, typingSpeed);
-
     return () => clearTimeout(timer);
   }, [text, isDeleting, loopNum, words, typeSpeed, deleteSpeed, delaySpeed, loop, hasStarted]);
 
   return (
-    <span>
+    <span className="inline-block">
       {text}
       <span 
-        className="animate-blink ml-1" 
-        style={{ color: cursorColor }}
+        className="animate-blink ml-1 border-r-4 inline-block h-[1em] translate-y-[0.1em]" 
+        style={{ borderColor: cursorColor }}
       >
-        |
+        &nbsp;
       </span>
     </span>
   );

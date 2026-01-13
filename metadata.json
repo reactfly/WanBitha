@@ -1,5 +1,7 @@
 {
-  "name": "WanBitha Official",
-  "description": "Official immersive portfolio for visual artist WanBitha, featuring a bold, responsive design with multilingual support.",
-  "requestFramePermissions": []
+  "name": "WanBitha | Official Artist Website",
+  "description": "Exploração imersiva e acervo da artista visual WanBitha. Pintura, escultura e instalações contemporâneas.",
+  "requestFramePermissions": [
+    "camera"
+  ]
 }
