@@ -4,67 +4,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanBitha | Arte Visual Contemporânea</title>
+    <title>WanBitha | Site Oficial | Arte Visual Contemporânea</title>
+    <meta name="description" content="Explore a alquimia visual de WanBitha. Pinturas, instalações imersivas e o caos organizado de uma das artistas mais impactantes da atualidade.">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="WanBitha | Official Artist Website">
+    <meta property="og:description" content="Imersão, matéria e luz. O universo visual de WanBitha.">
+    <meta property="og:image" content="https://images.pexels.com/photos/1545505/pexels-photo-1545505.jpeg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@300;400;600&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    
     <style>
+      :root {
+        --color-pink: #E6007E;
+        --color-yellow: #FFEC00;
+        --color-purple: #6200EA;
+      }
+
       body {
         font-family: 'Inter', sans-serif;
         background-color: #000;
         color: #fff;
         overflow-x: hidden;
       }
+      
       h1, h2, h3, .font-display {
         font-family: 'Anton', sans-serif;
+        letter-spacing: -0.02em;
       }
+      
       .font-archivo {
         font-family: 'Archivo Black', sans-serif;
       }
+      
       .font-syne {
         font-family: 'Syne', sans-serif;
       }
-      .font-helvetica {
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      }
+      
       .vertical-text {
         writing-mode: vertical-rl;
         text-orientation: mixed;
       }
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
+
+      /* Artistic Grain Overlay */
+      .grain-overlay::before {
+        content: "";
+        position: fixed;
+        top: -100%;
+        left: -100%;
+        width: 300%;
+        height: 300%;
+        background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 9999;
+        animation: grain 8s steps(10) infinite;
       }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+
+      @keyframes grain {
+        0%, 100% { transform: translate(0, 0); }
+        10% { transform: translate(-5%, -10%); }
+        30% { transform: translate(3%, -15%); }
+        50% { transform: translate(12%, 9%); }
+        70% { transform: translate(-9%, 4%); }
+        90% { transform: translate(17%, 7%); }
       }
+
       @keyframes blink {
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
+      
       .animate-blink {
         animation: blink 0.8s step-end infinite;
       }
-      /* Custom selection color */
-      ::selection {
-        background: #FFEC00;
+
+      ::-selection {
+        background: var(--color-yellow);
         color: #000;
       }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-pink);
+      }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
-  }
-}
-</script>
-</head>
-  <body>
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react/": "https://esm.sh/react@^19.2.3/",
+        "react": "https://esm.sh/react@^19.2.3",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+        "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+        "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+      }
+    }
+    </script>
+  </head>
+  <body class="grain-overlay">
     <div id="root"></div>
   </body>
 </html>
