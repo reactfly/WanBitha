@@ -4,26 +4,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WanBitha | Site Oficial | Arte Visual Contemporânea</title>
-    <meta name="description" content="Explore a alquimia visual de WanBitha. Pinturas, instalações imersivas e o caos organizado de uma das artistas mais impactantes da atualidade.">
+    <title>Wan Bit'ha | Wanessa Alcântara | Official Editorial</title>
+    <meta name="description" content="Site oficial da artista visual Wan Bit'ha. Explore o manifesto 'Arte como Aliada' e o acervo imersivo de Wanessa Alcântara.">
     
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="WanBitha | Official Artist Website">
-    <meta property="og:description" content="Imersão, matéria e luz. O universo visual de WanBitha.">
-    <meta property="og:image" content="https://images.pexels.com/photos/1545505/pexels-photo-1545505.jpeg">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Bodoni Moda (Vogue Style) & Tenor Sans (Editorial Body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Tenor+Sans&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Bodoni Moda for Vogue Titles & Tenor Sans for Editorial Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Tenor+Sans&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
     
     <style>
       :root {
         --color-pink: #FF007F;
         --color-yellow: #FFFF00;
-        --color-bg: #080808;
+        --color-bg: #050505;
       }
 
       body {
@@ -40,13 +34,13 @@
       .font-mono {
         font-family: 'Roboto Mono', monospace;
       }
-      
+
       .vertical-text {
         writing-mode: vertical-rl;
         text-orientation: mixed;
       }
 
-      /* Artistic Grain Overlay */
+      /* Vogue-style Grain Overlay */
       .grain-overlay::before {
         content: "";
         position: fixed;
@@ -55,7 +49,7 @@
         width: 300%;
         height: 300%;
         background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-        opacity: 0.04;
+        opacity: 0.05;
         pointer-events: none;
         z-index: 9999;
         animation: grain 8s steps(10) infinite;
@@ -64,54 +58,34 @@
       @keyframes grain {
         0%, 100% { transform: translate(0, 0); }
         10% { transform: translate(-5%, -10%); }
-        30% { transform: translate(3%, -15%); }
-        50% { transform: translate(12%, 9%); }
-        70% { transform: translate(-9%, 4%); }
-        90% { transform: translate(17%, 7%); }
+        50% { transform: translate(10%, 5%); }
+        90% { transform: translate(-2%, 8%); }
       }
 
-      /* Animations */
-      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      @keyframes spin-reverse { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-      @keyframes focus-text { 
-        0% { letter-spacing: 1em; opacity: 0; filter: blur(10px); }
-        100% { letter-spacing: 0.25em; opacity: 1; filter: blur(0); }
-      }
-      
-      .animate-spin-slow { animation: spin 30s linear infinite; }
-      .animate-spin-reverse-slow { animation: spin-reverse 20s linear infinite; }
-      .animate-focus { animation: focus-text 2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: #050505; }
+      ::-webkit-scrollbar-thumb { background: #FF007F; border-radius: 10px; }
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 4px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #080808;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #FF007F;
-      }
-
-      ::selection {
-        background: #FF007F;
-        color: white;
-      }
+      .ease-expo { transition-timing-function: cubic-bezier(0.85, 0, 0.15, 1); }
     </style>
     
     <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
   </head>
   <body class="grain-overlay">
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
   </body>
 </html>
